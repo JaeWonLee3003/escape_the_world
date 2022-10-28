@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Healtg : MonoBehaviour
+public class Health : MonoBehaviour
 {
 
     [SerializeField]
     private int health = 100;
 
     private int MAX_HEALTH = 100;
+
+    private Animator animator;
 
     void Start()
     {
@@ -17,7 +19,10 @@ public class Healtg : MonoBehaviour
 
     void Update()
     {
-        
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            Die();
+        }
     }
 
     public void Damage(int amount)
@@ -39,6 +44,11 @@ public class Healtg : MonoBehaviour
         if (amount < 0)
         {
             throw new System.ArgumentOutOfRangeException("Cannot have healing");
+            
+            if (health <= 0)
+            {
+                Die();
+            }
 
         }
 
@@ -58,6 +68,8 @@ public class Healtg : MonoBehaviour
     private void Die()
     {
         Debug.Log("I am Dead!");
+        animator.SetBool("IsDead", true);
         Destroy(gameObject);
+
     }
 }
