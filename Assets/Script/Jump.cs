@@ -60,12 +60,12 @@ public class Jump : MonoBehaviour
 
     private bool JumpKeyDown()
     {
-        return Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow);
+        return Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.W);
     }
 
     private bool JumpKeyUp()
     {
-        return Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.UpArrow);
+        return Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.W);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
