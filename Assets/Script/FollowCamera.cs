@@ -31,6 +31,7 @@ public class FollowCamera : MonoBehaviour
             transform.position.z);
 
         newPosition.x = Mathf.Clamp(newPosition.x, -2.5f, 5f);
+        newPosition.y = Mathf.Clamp(newPosition.y, 0.9f, 1.61f);
         transform.position = newPosition;
     }
 }
