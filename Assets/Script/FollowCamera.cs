@@ -27,9 +27,10 @@ public class FollowCamera : MonoBehaviour
     {
         Vector3 newPosition = new Vector3(
             player.transform.position.x,
-            player.transform.position.y,
+            player.transform.position.y + 2.3f,
             transform.position.z);
 
+        newPosition.x = Mathf.Clamp(newPosition.x, -2.5f, 5f);
         transform.position = newPosition;
     }
 }
