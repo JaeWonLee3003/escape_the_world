@@ -27,7 +27,7 @@ public class Scene_Tran : MonoBehaviour
         {
             if (Input.GetKeyUp(KeyCode.LeftShift))
             {
-               Scene.LoadScene(Define.Scene.Game);
+               // Scene.LoadScene(Define.Scene.Game);
             }
         }
     }

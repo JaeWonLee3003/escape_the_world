@@ -5,7 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     private 
-    float moveSpeed = 5f;
+    float moveSpeed = 3f;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
 

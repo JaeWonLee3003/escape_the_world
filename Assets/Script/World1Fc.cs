@@ -30,8 +30,8 @@ public class World1Fc : MonoBehaviour
             player.transform.position.y + 2.3f,
             transform.position.z);
 
-        newPosition.x = Mathf.Clamp(newPosition.x, 0.007f, 19f);
-        newPosition.y = Mathf.Clamp(newPosition.y, 0.1f, 0);
+        newPosition.x = Mathf.Clamp(newPosition.x, -1.44f, 19f);
+        newPosition.y = Mathf.Clamp(newPosition.y, 0.3f, 0);
         transform.position = newPosition;
     }
 }
