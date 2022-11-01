@@ -4,36 +4,34 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-
-    [SerializeField]
-    private int health = 100;
+    [SerializeField] private int health = 3;
 
     private int MAX_HEALTH = 100;
 
-    private Animator animator;
-
-    void Start()
-    {
-        
-    }
-
+    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.D))
         {
-            Die();
+            // Damage(10);
+        }
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            // Heal(10);
         }
     }
 
     public void Damage(int amount)
-    {   
-        if(amount < 0)
+    {
+        if (amount < 0)
         {
             throw new System.ArgumentOutOfRangeException("Cannot have negative Damage");
         }
+
         this.health -= amount;
 
-        if(health <= 0)
+        if (health <= 0)
         {
             Die();
         }
@@ -43,18 +41,12 @@ public class Health : MonoBehaviour
     {
         if (amount < 0)
         {
-            throw new System.ArgumentOutOfRangeException("Cannot have healing");
-            
-            if (health <= 0)
-            {
-                Die();
-            }
-
+            throw new System.ArgumentOutOfRangeException("Cannot have negative healing");
         }
 
         bool wouldBeOverMaxHealth = health + amount > MAX_HEALTH;
 
-        if(wouldBeOverMaxHealth)
+        if (wouldBeOverMaxHealth)
         {
             this.health = MAX_HEALTH;
         }
@@ -62,14 +54,11 @@ public class Health : MonoBehaviour
         {
             this.health += amount;
         }
-
     }
 
     private void Die()
     {
         Debug.Log("I am Dead!");
-        animator.SetBool("IsDead", true);
         Destroy(gameObject);
-
     }
 }
